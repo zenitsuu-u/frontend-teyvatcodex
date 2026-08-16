@@ -10,7 +10,7 @@ describe("API", () => {
             }) as any
         );
 
-        const res = await fetch("http://localhost:3000/characters");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/characters`);
 
         const data = await res.json();
 
