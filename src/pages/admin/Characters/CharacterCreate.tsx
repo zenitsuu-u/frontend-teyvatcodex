@@ -108,7 +108,7 @@ export default function CharacterCreate() {
                     .map((m) => ({ ...m, quantity: Number(m.quantity) })),
             };
 
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/characters", {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/characters`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

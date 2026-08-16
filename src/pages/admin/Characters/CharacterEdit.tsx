@@ -25,7 +25,7 @@ export default function CharacterEdit() {
     useEffect(() => {
         if (!slug) return;
 
-        fetch(`${import.meta.env.VITE_API_URL}/admin/characters/`,${slug}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/characters/${slug}`, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token"),
             },
@@ -60,7 +60,7 @@ export default function CharacterEdit() {
 
         try {
             const res = await fetch(
-                `${import.meta.env.VITE_API_URL}/admin/characters/`,${slug}`,
+                `${import.meta.env.VITE_API_URL}/admin/characters/${slug}`,
                 {
                     method: "PUT",
                     headers: {

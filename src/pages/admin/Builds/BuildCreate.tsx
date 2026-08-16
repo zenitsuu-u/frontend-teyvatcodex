@@ -34,7 +34,7 @@ export default function BuildCreate() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/admin/characters", {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/characters`, {
             headers: { Authorization: "Bearer " + localStorage.getItem("token") },
         })
             .then((res) => res.json())
@@ -64,7 +64,7 @@ export default function BuildCreate() {
         setMessage("");
 
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/builds", {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/builds`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

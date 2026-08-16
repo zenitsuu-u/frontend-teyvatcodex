@@ -6,7 +6,7 @@ export default function BuildList() {
     const [builds, setBuilds] = useState<Build[]>([]);
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/admin/builds", {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/builds`, {
             headers: { Authorization: "Bearer " + localStorage.getItem("token") }
         })
             .then(res => res.json())

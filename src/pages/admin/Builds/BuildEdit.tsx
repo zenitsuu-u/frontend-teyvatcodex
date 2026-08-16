@@ -63,7 +63,7 @@ export default function BuildEdit() {
                 });
             });
 
-        fetch(`${import.meta.env.VITE_API_URL}/admin/characters", {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/characters`, {
             headers: { Authorization: "Bearer " + localStorage.getItem("token") },
         })
             .then((res) => res.json())
