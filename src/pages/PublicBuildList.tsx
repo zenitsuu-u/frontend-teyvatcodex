@@ -90,7 +90,7 @@ export default function PublicBuildList() {
 
         try {
             const res = await fetch(
-                "http://localhost:3000/favorites",
+                `${import.meta.env.VITE_API_URL}/favorites",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -125,7 +125,7 @@ export default function PublicBuildList() {
 
             if (!isFav) {
 
-                await fetch("http://localhost:3000/favorites", {
+                await fetch(`${import.meta.env.VITE_API_URL}/favorites", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -144,7 +144,7 @@ export default function PublicBuildList() {
             else {
 
                 await fetch(
-                    `http://localhost:3000/favorites/${slug}`,
+                    `http://${import.meta.env.VITE_API_URL}/favorites/${slug}`,
                     {
                         method: "DELETE",
                         headers: {
@@ -302,7 +302,7 @@ export default function PublicBuildList() {
                         </button>
 
                         <img
-                            src={c.icon?.startsWith("http") ? c.icon : `http://localhost:3000${c.icon}`}
+                            src={c.icon?.startsWith("http") ? c.icon : `http://${import.meta.env.VITE_API_URL}${c.icon}`}
                             alt={c.name}
                             style={{
                                 width: "100%",

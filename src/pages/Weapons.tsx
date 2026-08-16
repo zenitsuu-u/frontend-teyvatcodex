@@ -31,7 +31,7 @@ export default function Weapons() {
     const token = localStorage.getItem("token");
 
     useEffect(() => {
-        fetch("http://localhost:3000/weapons")
+        fetch(`${import.meta.env.VITE_API_URL}/weapons")
             .then(res => res.json())
             .then((data) => {
                 setWeapons(data);
@@ -46,7 +46,7 @@ export default function Weapons() {
         try {
 
             const res = await fetch(
-                "http://localhost:3000/favorites",
+                `${import.meta.env.VITE_API_URL}/favorites",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -81,7 +81,7 @@ export default function Weapons() {
 
             if (!isFav) {
 
-                await fetch("http://localhost:3000/favorites", {
+                await fetch(`${import.meta.env.VITE_API_URL}/favorites", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -98,7 +98,7 @@ export default function Weapons() {
             else {
 
                 await fetch(
-                    `http://localhost:3000/favorites/${slug}`,
+                    `http://${import.meta.env.VITE_API_URL}/favorites/${slug}`,
                     {
                         method: "DELETE",
                         headers: {
@@ -250,7 +250,7 @@ export default function Weapons() {
                             >
 
                                 <img
-                                    src={w.icon.startsWith("http") ? w.icon : `http://localhost:3000${w.icon}`}
+                                    src={w.icon.startsWith("http") ? w.icon : `${import.meta.env.VITE_API_URL}${w.icon}`}
                                     alt={w.name}
                                     style={{
                                         width: "90px",

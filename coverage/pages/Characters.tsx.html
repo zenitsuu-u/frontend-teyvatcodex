@@ -977,7 +977,7 @@ type Character = {
     icon: string;
 };
 &nbsp;
-const API_URL = "http://localhost:3000";
+const API_URL = `${import.meta.env.VITE_API_URL}";
 &nbsp;
 const getImageUrl = (path?: string) =&gt; {
     <span class="missing-if-branch" title="if path not taken" >I</span>if (!path) <span class="cstat-no" title="statement not covered" >return "";</span>

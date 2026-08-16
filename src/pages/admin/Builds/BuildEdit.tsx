@@ -48,7 +48,7 @@ export default function BuildEdit() {
     useEffect(() => {
         if (!id) return;
 
-        fetch(`http://localhost:3000/admin/builds/${id}`, {
+        fetch(`http://${import.meta.env.VITE_API_URL}/admin/builds/${id}`, {
             headers: { Authorization: "Bearer " + localStorage.getItem("token") },
         })
             .then((res) => res.json())
@@ -63,13 +63,13 @@ export default function BuildEdit() {
                 });
             });
 
-        fetch("http://localhost:3000/admin/characters", {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/characters", {
             headers: { Authorization: "Bearer " + localStorage.getItem("token") },
         })
             .then((res) => res.json())
             .then((data: Character[]) => setCharacters(data));
 
-        fetch("http://localhost:3000/admin/weapons", {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/weapons", {
             headers: { Authorization: "Bearer " + localStorage.getItem("token") },
         })
             .then((res) => res.json())
@@ -103,7 +103,7 @@ export default function BuildEdit() {
         setMessage("");
 
         try {
-            const res = await fetch(`http://localhost:3000/admin/builds/${id}`, {
+            const res = await fetch(`http://${import.meta.env.VITE_API_URL}/admin/builds/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -303,7 +303,7 @@ export default function BuildEdit() {
                         src={
                             form.image.trim().startsWith("http")
                                 ? form.image.trim()
-                                : `http://localhost:3000${form.image.trim()}`
+                                : `http://${import.meta.env.VITE_API_URL}${form.image.trim()}`
                         }
                         alt="Build preview"
                         style={{ width: "200px", borderRadius: "10px", marginTop: "10px" }}

@@ -108,7 +108,7 @@ export default function CharacterCreate() {
                     .map((m) => ({ ...m, quantity: Number(m.quantity) })),
             };
 
-            const res = await fetch("http://localhost:3000/admin/characters", {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/characters", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -254,7 +254,7 @@ export default function CharacterCreate() {
                             />
                             {form.icon && (
                                 <img
-                                    src={form.icon.startsWith("http") ? form.icon : `http://localhost:3000${form.icon}`}
+                                    src={form.icon.startsWith("http") ? form.icon : `http://${import.meta.env.VITE_API_URL}${form.icon}`}
                                     alt="icon"
                                     style={{ width: "100px", borderRadius: "10px", marginTop: "10px" }}
                                 />
@@ -270,7 +270,7 @@ export default function CharacterCreate() {
                             />
                             {form.image && (
                                 <img
-                                    src={form.image.startsWith("http") ? form.image : `http://localhost:3000${form.image}`}
+                                    src={form.image.startsWith("http") ? form.image : `http://${import.meta.env.VITE_API_URL}${form.image}`}
                                     alt="preview"
                                     style={{ width: "220px", borderRadius: "10px", marginTop: "10px" }}
                                 />

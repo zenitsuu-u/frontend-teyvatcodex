@@ -129,7 +129,7 @@ export default function WeaponDetails() {
     useEffect(() => {
         if (!slug) return;
 
-        fetch(`http://localhost:3000/weapon/${slug}`)
+        fetch(`http://${import.meta.env.VITE_API_URL}/weapon/${slug}`)
             .then((res) => res.json())
             .then((data: Weapon) => {
                 if (!data.ascensionMaterials) data.ascensionMaterials = [];
@@ -142,7 +142,7 @@ export default function WeaponDetails() {
 
     const imageUrl = weapon.image?.startsWith("http")
         ? weapon.image
-        : `http://localhost:3000${weapon.image}`;
+        : `http://${import.meta.env.VITE_API_URL}${weapon.image}`;
 
     return (
         <div style={{ padding: "20px", color: "white" }}>

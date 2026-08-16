@@ -6,7 +6,7 @@ export default function BuildList() {
     const [builds, setBuilds] = useState<Build[]>([]);
 
     useEffect(() => {
-        fetch("http://localhost:3000/admin/builds", {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/builds", {
             headers: { Authorization: "Bearer " + localStorage.getItem("token") }
         })
             .then(res => res.json())
@@ -16,7 +16,7 @@ export default function BuildList() {
     function handleDelete(id: number) {
         if (!confirm("Supprimer ce build ?")) return;
 
-        fetch(`http://localhost:3000/admin/builds/${id}`, {
+        fetch(`http://${import.meta.env.VITE_API_URL}/admin/builds/${id}`, {
             method: "DELETE",
             headers: { Authorization: "Bearer " + localStorage.getItem("token") }
         })

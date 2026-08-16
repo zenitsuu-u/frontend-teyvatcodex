@@ -30,7 +30,7 @@ export default function BuildDetails() {
         setLoading(true);
         setError("");
 
-        fetch(`http://localhost:3000/builds/${slug}`)
+        fetch(`http://${import.meta.env.VITE_API_URL}/builds/${slug}`)
             .then((res) => {
                 if (!res.ok) throw new Error("Build introuvable");
                 return res.json();
@@ -79,7 +79,7 @@ export default function BuildDetails() {
 
             {build.image && (
                 <img
-                    src={`http://localhost:3000${build.image}`}
+                    src={`http://${import.meta.env.VITE_API_URL}${build.image}`}
                     alt="Build"
                     style={{
                         width: "100%",
