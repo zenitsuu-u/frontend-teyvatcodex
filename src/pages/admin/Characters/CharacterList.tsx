@@ -17,7 +17,7 @@ export default function CharacterList() {
     const [characters, setCharacters] = useState<Character[]>([]);
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/admin/characters", {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/characters`, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token"),
             },
@@ -29,7 +29,7 @@ export default function CharacterList() {
     function handleDelete(slug: string) {
         if (!confirm("Supprimer ce personnage ?")) return;
 
-        fetch(`http://${import.meta.env.VITE_API_URL}/admin/characters/${slug}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/characters/${slug}`, {
             method: "DELETE",
             headers: { Authorization: "Bearer " + localStorage.getItem("token") }
         })

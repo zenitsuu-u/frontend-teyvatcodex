@@ -2,12 +2,12 @@ export async function toggleFavorite(token: string, type: string, target_id: str
     if (!token) return;
 
     if (isFav) {
-        await fetch(`http://${import.meta.env.VITE_API_URL}/favorites/${target_id}`, {
+        await fetch(`${import.meta.env.VITE_API_URL}/favorites/${target_id}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` }
         });
     } else {
-        await fetch(`${import.meta.env.VITE_API_URL}/favorites", {
+        await fetch(`${import.meta.env.VITE_API_URL}/favorites`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

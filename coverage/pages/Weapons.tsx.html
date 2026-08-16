@@ -743,7 +743,7 @@ export default function Weapons() {
         try {
 &nbsp;
             const res = await fetch(
-                `${import.meta.env.VITE_API_URL}/favorites",
+                `${import.meta.env.VITE_API_URL}/favorites`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -778,7 +778,7 @@ export default function Weapons() {
 &nbsp;
 <span class="cstat-no" title="statement not covered" >            if (!isFav) {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                await fetch(`${import.meta.env.VITE_API_URL}/favorites", {</span>
+<span class="cstat-no" title="statement not covered" >                await fetch(`${import.meta.env.VITE_API_URL}/favorites`, {</span>
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -795,7 +795,7 @@ export default function Weapons() {
             else {
 &nbsp;
 <span class="cstat-no" title="statement not covered" >                await fetch(</span>
-                    `http://${import.meta.env.VITE_API_URL}/favorites/${slug}`,
+                    `${import.meta.env.VITE_API_URL}/favorites/${slug}`,
                     {
                         method: "DELETE",
                         headers: {

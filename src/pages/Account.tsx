@@ -18,7 +18,7 @@ export default function Account() {
             if (!token) return;
 
             try {
-                const res = await fetch(`${import.meta.env.VITE_API_URL}/favorites", {
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/favorites`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

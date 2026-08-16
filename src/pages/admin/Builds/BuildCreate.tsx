@@ -40,7 +40,7 @@ export default function BuildCreate() {
             .then((res) => res.json())
             .then((data: Character[]) => setCharacters(data));
 
-        fetch(`${import.meta.env.VITE_API_URL}/admin/weapons", {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/weapons`, {
             headers: { Authorization: "Bearer " + localStorage.getItem("token") },
         })
             .then((res) => res.json())

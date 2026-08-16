@@ -25,7 +25,7 @@ export default function CharacterEdit() {
     useEffect(() => {
         if (!slug) return;
 
-        fetch(`http://${import.meta.env.VITE_API_URL}/admin/characters/${slug}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/characters/`,${slug}`, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token"),
             },
@@ -60,7 +60,7 @@ export default function CharacterEdit() {
 
         try {
             const res = await fetch(
-                `http://${import.meta.env.VITE_API_URL}/admin/characters/${slug}`,
+                `${import.meta.env.VITE_API_URL}/admin/characters/`,${slug}`,
                 {
                     method: "PUT",
                     headers: {
@@ -207,7 +207,7 @@ export default function CharacterEdit() {
                     />
                     {form.icon && (
                         <img
-                            src={form.icon.startsWith("http") ? form.icon : `http://${import.meta.env.VITE_API_URL}${form.icon}`}
+                            src={form.icon.startsWith("http") ? form.icon : `${import.meta.env.VITE_API_URL}${form.icon}`}
                             alt="Icon preview"
                             style={previewStyle}
                         />
@@ -221,7 +221,7 @@ export default function CharacterEdit() {
                     />
                     {form.image && (
                         <img
-                            src={form.image.startsWith("http") ? form.image : `http://${import.meta.env.VITE_API_URL}${form.image}`}
+                            src={form.image.startsWith("http") ? form.image : `${import.meta.env.VITE_API_URL}${form.image}`}
                             alt="Image preview"
                             style={{ ...previewStyle, width: "220px" }}
                         />

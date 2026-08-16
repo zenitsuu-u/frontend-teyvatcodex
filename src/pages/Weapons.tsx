@@ -46,7 +46,7 @@ export default function Weapons() {
         try {
 
             const res = await fetch(
-                `${import.meta.env.VITE_API_URL}/favorites",
+                `${import.meta.env.VITE_API_URL}/favorites`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -81,7 +81,7 @@ export default function Weapons() {
 
             if (!isFav) {
 
-                await fetch(`${import.meta.env.VITE_API_URL}/favorites", {
+                await fetch(`${import.meta.env.VITE_API_URL}/favorites`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -98,7 +98,7 @@ export default function Weapons() {
             else {
 
                 await fetch(
-                    `http://${import.meta.env.VITE_API_URL}/favorites/${slug}`,
+                    `${import.meta.env.VITE_API_URL}/favorites/${slug}`,
                     {
                         method: "DELETE",
                         headers: {

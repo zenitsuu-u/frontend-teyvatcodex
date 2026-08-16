@@ -20,7 +20,7 @@ export default function WeaponEdit() {
     useEffect(() => {
         if (!slug) return;
 
-        fetch(`http://${import.meta.env.VITE_API_URL}/admin/weapons/${slug}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/weapons/${slug}`, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token"),
             },
@@ -76,7 +76,7 @@ export default function WeaponEdit() {
         setError("");
 
         try {
-            const res = await fetch(`http://${import.meta.env.VITE_API_URL}/admin/weapons/${slug}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/weapons/${slug}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -154,7 +154,7 @@ export default function WeaponEdit() {
                 />
                 {form.icon && (
                     <img
-                        src={form.icon.startsWith("http") ? form.icon : `http://${import.meta.env.VITE_API_URL}${form.icon}`}
+                        src={form.icon.startsWith("http") ? form.icon : `${import.meta.env.VITE_API_URL}${form.icon}`}
                         alt="icon preview"
                         style={{ width: "60px", borderRadius: "6px" }}
                     />
@@ -166,7 +166,7 @@ export default function WeaponEdit() {
                 />
                 {form.image && (
                     <img
-                        src={form.image.startsWith("http") ? form.image : `http://${import.meta.env.VITE_API_URL}${form.image}`}
+                        src={form.image.startsWith("http") ? form.image : `${import.meta.env.VITE_API_URL}${form.image}`}
                         alt="image preview"
                         style={{ width: "120px", borderRadius: "6px" }}
                     />

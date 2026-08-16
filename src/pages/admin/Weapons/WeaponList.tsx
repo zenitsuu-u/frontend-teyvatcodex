@@ -9,7 +9,7 @@ export default function WeaponList() {
     const [error, setError] = useState("");
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/admin/weapons", {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/weapons`, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token"),
             },
@@ -30,7 +30,7 @@ export default function WeaponList() {
         if (!confirm("Supprimer cette arme ?")) return;
 
         try {
-            const res = await fetch(`http://${import.meta.env.VITE_API_URL}/admin/weapons/${slug}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/weapons/${slug}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: "Bearer " + localStorage.getItem("token"),

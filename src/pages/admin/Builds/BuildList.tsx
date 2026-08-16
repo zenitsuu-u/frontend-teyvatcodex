@@ -16,7 +16,7 @@ export default function BuildList() {
     function handleDelete(id: number) {
         if (!confirm("Supprimer ce build ?")) return;
 
-        fetch(`http://${import.meta.env.VITE_API_URL}/admin/builds/${id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/builds/${id}`, {
             method: "DELETE",
             headers: { Authorization: "Bearer " + localStorage.getItem("token") }
         })

@@ -254,7 +254,7 @@ export default function CharacterCreate() {
                             />
                             {form.icon && (
                                 <img
-                                    src={form.icon.startsWith("http") ? form.icon : `http://${import.meta.env.VITE_API_URL}${form.icon}`}
+                                    src={form.icon.startsWith("http") ? form.icon : `${import.meta.env.VITE_API_URL}${form.icon}`}
                                     alt="icon"
                                     style={{ width: "100px", borderRadius: "10px", marginTop: "10px" }}
                                 />
@@ -270,7 +270,7 @@ export default function CharacterCreate() {
                             />
                             {form.image && (
                                 <img
-                                    src={form.image.startsWith("http") ? form.image : `http://${import.meta.env.VITE_API_URL}${form.image}`}
+                                    src={form.image.startsWith("http") ? form.image : `${import.meta.env.VITE_API_URL}${form.image}`}
                                     alt="preview"
                                     style={{ width: "220px", borderRadius: "10px", marginTop: "10px" }}
                                 />

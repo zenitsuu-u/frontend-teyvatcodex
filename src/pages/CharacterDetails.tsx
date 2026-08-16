@@ -47,7 +47,7 @@ export default function CharacterDetails() {
     };
 
     useEffect(() => {
-        fetch(`http://${import.meta.env.VITE_API_URL}/characters/${slug}/details`)
+        fetch(`${import.meta.env.VITE_API_URL}/characters/${slug}/details`)
             .then(res => res.json())
             .then(json => {
                 setData(json);
@@ -64,7 +64,7 @@ export default function CharacterDetails() {
             if (!token) return;
 
             try {
-                const res = await fetch(`${import.meta.env.VITE_API_URL}/favorites", {
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/favorites`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -95,7 +95,7 @@ export default function CharacterDetails() {
 
         try {
             if (!isFav) {
-                await fetch(`${import.meta.env.VITE_API_URL}/favorites", {
+                await fetch(`${import.meta.env.VITE_API_URL}/favorites`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -109,7 +109,7 @@ export default function CharacterDetails() {
 
                 setIsFav(true);
             } else {
-                await fetch(`http://${import.meta.env.VITE_API_URL}/favorites/${slug}`, {
+                await fetch(`${import.meta.env.VITE_API_URL}/favorites/${slug}`, {
                     method: "DELETE",
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -202,7 +202,7 @@ export default function CharacterDetails() {
                 <img
                     src={data.icon?.startsWith("http")
                         ? data.icon
-                        : `http://${import.meta.env.VITE_API_URL}${data.icon}`}
+                        : `${import.meta.env.VITE_API_URL}${data.icon}`}
                     alt={data.name}
                     style={{
                         width: "160px",
