@@ -1,0 +1,83 @@
+/* --- THEME GLOBAL ADMIN --- */
+
+:root {
+    --admin-bg: #0f172a;
+    --admin-card: #1e293b;
+    --admin-border: #d4af37;
+    --admin-text: #f1f5f9;
+    --admin-accent: #d4af37;
+    --admin-accent-hover: #b8962e;
+    --admin-font-title: "Cinzel", serif;
+}
+
+/* Layout général */
+.admin-container {
+    padding: 20px;
+    background: var(--admin-bg);
+    min-height: 100vh;
+    color: var(--admin-text);
+}
+
+/* Titres */
+.admin-title {
+    font-family: var(--admin-font-title);
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--admin-accent);
+}
+
+/* Cartes */
+.admin-card {
+    background: var(--admin-card);
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Table */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--admin-card);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.admin-table th {
+    font-family: var(--admin-font-title);
+    color: var(--admin-accent);
+    font-size: 18px;
+}
+
+.admin-btn {
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid var(--admin-border);
+    background: transparent;
+    color: var(--admin-accent);
+    transition: 0.2s;
+}
+
+.admin-btn:hover {
+    background: var(--admin-accent);
+    color: black;
+}
+
+.admin-btn-danger {
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+}
+
+.admin-btn-danger:hover {
+    background: #ff4d4d;
+    color: white;
+}

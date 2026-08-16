@@ -1,0 +1,20 @@
+{
+  "10007": {
+    "name": "Vieille flèche rouillée",
+    "rarity": 2,
+    "type": "Matériau d'ennemi",
+    "icon": "https://genshin-center.com/images/materials/old-arrowhead.png"
+  },
+  "10014": {
+    "name": "Flèche aiguisée",
+    "rarity": 3,
+    "type": "Matériau d'ennemi",
+    "icon": "https://genshin-center.com/images/materials/sharp-arrowhead.png"
+  },
+  "10021": {
+    "name": "Flèche usée",
+    "rarity": 1,
+    "type": "Matériau d'ennemi",
+    "icon": "https://genshin-center.com/images/materials/broken-arrowhead.png"
+  }
+}

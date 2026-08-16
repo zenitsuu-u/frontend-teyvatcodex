@@ -1,0 +1,60 @@
+stages:
+  - install
+  - test
+  - build
+  - dockerize
+  - deploy
+
+variables:
+  DOCKER_DRIVER: overlay2
+  IMAGE_NAME: registry.gitlab.com/$CI_PROJECT_PATH/frontend
+
+cache:
+  paths:
+    - node_modules/
+
+install:
+  stage: install
+  image: node:20
+  script:
+    - npm install
+
+test_frontend:
+  stage: test
+  image: node:20
+  script:
+    - npm run test:coverage
+  artifacts:
+    paths:
+      - coverage
+    expire_in: 1 week
+
+build:
+  stage: build
+  image: node:20
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+dockerize:
+  stage: dockerize
+  image: docker:24
+  services:
+    - docker:24-dind
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker build -t $IMAGE_NAME:$CI_COMMIT_SHA .
+    - docker push $IMAGE_NAME:$CI_COMMIT_SHA
+    - docker tag $IMAGE_NAME:$CI_COMMIT_SHA $IMAGE_NAME:latest
+    - docker push $IMAGE_NAME:latest
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  script:
+    - echo "🚀 Déploiement front terminé."
+  only:
+    - main
